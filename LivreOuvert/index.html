@@ -1,0 +1,145 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Bio2RDF mobile</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+    <link rel="stylesheet" src="css/table-style.css" />
+    
+    <!-- Jquery Library -->
+    <script src="js/lib/jquery-1.9.1.min.js"></script>
+    <script src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+    <script src="js/lib/jquery.mobile.swipeup-swipedown.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.ui.touch-punch.min.js"></script>    
+    <script src="js/lib/jquery-ui.min.js"></script>
+    
+    <!-- Database workers -->
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/eventBindings.js"></script>
+    <script type="text/javascript" src="js/autocomplete.js"></script>
+    <script type="text/javascript" src="js/obo_request.js"></script>
+
+  </head>
+
+  <body>
+  
+    <script type="text/javascript">
+             
+
+      // Eventually sort the database in the leftpanel in the order you want.
+      // .. and then be able to make a query on all the databases and the results would
+      // $(function() {
+      //     $( "radio-choice" ).sortable();
+      //     $( "radio-choice" ).disableSelection();
+      // });
+      
+      
+      $(document).ready(function(){
+
+        // Load le logo header sur le premier clické
+        var src = "img/"+ $("#dbPick input[type='radio']:checked").val() + ".png";
+        $("#logoHead").attr("src", src);
+
+        //Binding des events touch
+        eventBindings();
+        // On commence avec une recherche
+        typeAheadContent();
+                                    
+        // Set Endpoint selection on document.ready -> first on the list of the leftpanel
+        var endpoint = $("#dbPick input[type='radio']:checked").val();
+
+      });
+      
+ 
+    </script>
+    
+    <!-- Start of first page -->
+    <div data-role="page" id="foo">
+      
+
+      <!-- LEFT PANEL -->
+      <div data-role="panel" id="leftPanel" data-position="left" data-display="overlay" data-dismissible="true" data-theme="b">
+                
+        <h2 style="font-family: times, serif; font-style:italic;font-size:16px"> Metadata databases</h2>
+        
+        <fieldset data-role="controlgroup" data-theme="b" id="dbPick" data-mini="true">
+
+          <input type="radio" name="radio-choice" id="radio-bio2rdf" value="bio2rdf" />
+          <label for="radio-bio2rdf" style="text-align:center"><img src="img/bio2rdf.png" width="100px"></label>
+   
+          <input type="radio" name="radio-choice" id="radio-go" value="go" checked="true" />
+          <label for="radio-go" style="text-align:center"><img src="img/go.png" width="100px"></label>
+
+          <input type="radio" name="radio-choice" id="radio-do" value="do" />
+          <label for="radio-do" style="text-align:center"><img src="img/do.png" width="100px"></label>
+
+          <input type="radio" name="radio-choice" id="radio-chebi" value="chebi" />
+          <label for="radio-chebi" style="text-align:center"><img src="img/chebi.png" width="100px"></label>
+
+          <!-- <input type="radio" name="radio-choice" id="radio-uniprot" value="uniprot" /> -->
+          <!-- <label for="radio-uniprot" style="text-align:center"><img src="img/uniprot.png" width="100px"></label> -->
+
+          <!-- <input type="radio" name="radio-choice" id="radio-biopax" value="biopax" /> -->
+          <!-- <label for="radio-biopax" style="text-align:center"><img src="img/biopax.png" width="100px"></label> -->
+
+          <!-- <input type="radio" name="radio-choice" id="radio-sio" value="sio" /> -->
+          <!-- <label for="radio-sio" style="text-align:center"><img src="img/sio.png" width="100px"></label> -->
+
+          <!-- <input type="radio" name="radio-choice" id="radio-sadi" value="sadi" /> -->
+          <!-- <label for="radio-sadi" style="text-align:center"><img src="img/sadi.png" width="100px"></label> -->
+          
+          
+        </fieldset>        
+
+        <!-- Eventually implement a historic list right here -->
+        <h2 style="font-family: times, serif; font-style:italic;">Historic</h2>
+        <div id="history"></div>
+
+        <h2 style="font-family: times, serif; font-style:italic;">MashUp</h2>
+        <div id="mashup"></div>
+
+      </div><!-- /LEFT PANEL -->
+      
+
+      <!-- HEADER -->
+      <div id="header" data-role="header" data-theme="c">
+        
+        <a href="#leftPanel" data-role="button" data-inline="true" data-icon="bars" data-iconpos="notext"></a>
+
+        <!-- Header Logo -->
+        <h1 style="text-align:center;font-family:verdana;font-size:12px;font-style:italic"><img id="logoHead" src="img/pubmed.png" width="80px"/></h1>
+        
+        <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext"></a>   
+
+
+        <div id="describeHeader">
+          <h1 style="text-align:center"></h1>
+        </div>           
+
+
+        <!-- SearchMenu inside header -->
+        <div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:15px; margin-right:15px">
+          <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"/>
+          <!--<button data-theme="a" id="submit" data-inline="true">Search</button>-->
+        </div> <!-- /searchMenu -->
+        
+
+      </div><!-- /HEADER -->
+      
+      
+      <!-- Page CONTENT -->
+      <div id="content" data-role="content"> 
+        
+        
+      </div><!-- /CONTENT -->
+      
+    </div><!-- /PAGE -->
+    
+  </body>
+  
+</html>
+
