@@ -62,6 +62,26 @@ function auteurWiki(id){
 }
 
 
+function bouquinAmazon (id){
+  
+  var resource = id.split(":");
+  var amazonURL = "http://10.80.3.6:9000/amazone/" + resource[1] + "/?callback=?";
+  
+  alert(amazonURL);
+
+  // $.getJSON(encodeURI(domain+"describe/"+id+"/?callback=?"), function(data, textStatus){
+  $.getJSON(encodeURI(amazonURL), function(data,textstatus){
+
+    $.each(data, function(key, val){
+      // alert(val);  
+      $("#extContent").append("<img src=\"" + val + "\" style=\"display: block; margin: 0 auto;\"/>");
+    });
+    
+  });
+   
+
+}
+
 
 function printObj(key, obj) {
   var content="";
@@ -94,6 +114,7 @@ function describe(id) {
 	$("#content").append("<hr></hr><h3>"+capitalize(key.replace("bouquin:",""))+"</h3>"+printObj(key, value));
       }
     });
+
     if (/auteur/g.test(data["@id"])==true) {
       $("#content").append("<div id=\"livres\" data-role=\"collapsibleset\" style=\"margin-left:5px\"></div>")
       $("#livres").collapsibleset();
@@ -107,10 +128,18 @@ function describe(id) {
 	$("#livres").collapsibleset("refresh");
 	$("#livres").trigger("updatelayout");	
       });
+      
+      auteurWiki(id);            
+    }else if (/isbn/g.test(data["@id"])==true){
+    
+      alert(id);
 
-      auteurWiki(id);      
+      bouquinAmazon(id);
 
+      // $("#extContent").append("<img src=\"" + binding.img.value + "\" style=\"display: block; margin: 0 auto;\"/>");
     }
+    
+
   });
 
 
