@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Livre Ouvert</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+    <link rel="stylesheet" src="css/table-style.css" />
+    
+    <!-- Jquery Library -->
+    <script src="js/lib/jquery-1.9.1.min.js"></script>
+    <script src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+    <script src="js/lib/jquery.mobile.swipeup-swipedown.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.ui.touch-punch.min.js"></script>    
+    <script src="js/lib/jquery-ui.min.js"></script>
+    
+    <!-- Database workers -->
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/eventBindings.js"></script>
+    <script type="text/javascript" src="js/autocomplete.js"></script>
+    <script type="text/javascript" src="js/obo_request.js"></script>
+
+  </head>
+
+  <body>
+  
+    <script type="text/javascript">
+             
+      $(document).ready(function(){
+        $.getJSON("testjson/data.json", function(data, status){
+          $("#isbn").text("ISBN: "+data["@id"].);
+        });
+      });
+      
+ 
+    </script>
+    
+    <!-- Start of first page -->
+    <div data-role="page" id="foo" style="margin-left:5px; margin-right:5px; margin-top:5px; margin-bottom:5px">
+      
+      <img id="imageLivre" src="http://images4.fanpop.com/image/photos/20100000/Game-of-Thrones-Tie-in-Cover-a-song-of-ice-and-fire-20154638-794-1213.jpg" width="100px" style="float:right; margin-top:10px; margin-right:10px"></img>
+      <h1 id="aNom">Nom, Prénom</h1>
+      <h1 id="titre">Titre</h1>
+      <h3 id="annee">1900-1990</h3>
+      <h3 id="ville">Ville</h3>
+      <h3 id="edition">Édition: </h3>
+      <h3 id="isbn">isbn:987987234<p>
+      <hr></hr>
+      <h2 id="resume">Ceci est le résumé du livre</h2>
+      
+    </div><!-- /PAGE -->
+    
+  </body>
+  
+</html>
+
