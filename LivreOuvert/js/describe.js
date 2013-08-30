@@ -28,31 +28,8 @@ function auteurWiki(id){
 	    function(data,textstatus){
 
 	      $.each(data.results.bindings, function(i, binding){
-
-                // alert(binding.abs.value);
-		// switch (binding.p.value) {
-		// case "http://www.w3.org/2000/01/rdf-schema#label":
-		//   $label.html("<h2>"+capitalize(binding.o.value)+"</h2>");
-		//   break;
-		// case "http://www.w3.org/2000/01/rdf-schema#comments":
-		//   $comments.text(binding.o.value);
-		//   break;
-		// }
-
-                // alert(binding.img.value);
                 
-                // alert(binding.img.value);
-
-
-                // if(binding.img.value != ''){
-                //   $("#extContent").append("<img src=\"" + binding.img.value + "\" style=\"margin: 0 auto;\"/>");
-                // }
-                
-                // if(binding.abs.value != ''){
-                //   $("#extContent").append("<p>" + binding.abs.value + "</p>");
-                // }
-                
-                $("#extContent").append("<img src=\"" + binding.img.value + "\" style=\"display: block; margin: 0 auto;\"/>");
+                $("#extContent").append("<img src=\"" + binding.img.value + "\" style=\"display: block; margin: 0 auto; width:200px\"/>");
                 $("#extContent").append("<p>" + binding.abs.value + "</p>");
 
 	      });
@@ -67,14 +44,12 @@ function bouquinAmazon (id){
   var resource = id.split(":");
   var amazonURL = "http://10.80.3.6:9000/amazone/" + resource[1] + "/?callback=?";
   
-  alert(amazonURL);
-
   // $.getJSON(encodeURI(domain+"describe/"+id+"/?callback=?"), function(data, textStatus){
   $.getJSON(encodeURI(amazonURL), function(data,textstatus){
 
     $.each(data, function(key, val){
       // alert(val);  
-      $("#extContent").append("<img src=\"" + val + "\" style=\"display: block; margin: 0 auto;\"/>");
+      $("#extContent").append("<img src=\"" + val + "\" style=\"display: block; margin: 0 auto; width:200px\"/>");
     });
     
   });
@@ -132,10 +107,7 @@ function describe(id) {
       auteurWiki(id);            
     }else if (/isbn/g.test(data["@id"])==true){
     
-      alert(id);
-
       bouquinAmazon(id);
-
       // $("#extContent").append("<img src=\"" + binding.img.value + "\" style=\"display: block; margin: 0 auto;\"/>");
     }
     
