@@ -7,6 +7,7 @@ function capitalize(s)
 // Fonction qui cache la mise en page qui varie et qui supprime tout ce qui est dans content
 function refreshPage() {
   $("#content").html("");
+  $("#extContent").html("");
   // $("#searchMenu").hide();
   $("#logo").hide(); // EVENTUELEMENT METTRE LE LOGO DU ENDPOINT
   $("#describeHeader").hide();
@@ -20,8 +21,8 @@ function describeContent(id,endpoint){
   $("#describeHeader").show();
   $("#navigationButtons").show();
   
-	/*uri = "http://192.168.130.107:9000/describeAuteur/" + id + "/?callback=?"*/
-	//uri = "http://192.168.130.107:9000/describe/" + id + "/?callback=?"
+  /*uri = "http://192.168.130.107:9000/describeAuteur/" + id + "/?callback=?"*/
+  //uri = "http://192.168.130.107:9000/describe/" + id + "/?callback=?"
 
   describe(id);
 
