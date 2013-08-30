@@ -66,27 +66,27 @@
       <div id="header" data-role="header" data-theme="c">
         
         <!-- Header Logo -->
-        <!-- <h1>Livre Ouvert</h1> -->
         <h1><img src="img/livreTmp.png" width="80px"/></h1>
 
+        <div class="ui-grid-a" style="text-align:center;">
 
-        <!-- <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext" ></a>    -->
+          <div class="ui-block-a" style="width:10%">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick" data-inline="true">
+              <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" data-mini="true" checked="true"/>
+              <label for="radio-auteur">Auteurs</label>
+              <input type="radio" name="radio-choice" id="radio-titre" value="titre" data-mini="true"/>
+              <label for="radio-titre">Titres</label>            
+            </fieldset>
+          </div>
 
-        <div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:25px; margin-right:25px">
-        <!-- <div id="searchMenu" data-role="field-contain"> -->
-          <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
+
+          <div class="ui-block-b" style="width:85%; margin-top:2px">
+            <div id="searchMenu" data-role="field-contain" data-inline="true" style="margin-left:5px; margin-right:5px;">
+              <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
+            </div>
+          </div>          
+
         </div>
-
-        <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick" style="margin: 0 auto; text-align: center;" >
-
-          <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" data-mini="true" checked="true"/>
-          <label for="radio-auteur"><h3>Auteurs</h3></label>
-          <input type="radio" name="radio-choice" id="radio-titre" value="titre" data-mini="true"/>
-          <label for="radio-titre"><h3>Titres</h3></label>
-          <!-- <input type="radio" name="radio-choice" id="radio-sujet" value="sujet" data-mini="true" checked="true" /> -->
-          <!-- <label for="radio-sujet"><h3>Sujets</h3></label> -->
-          
-        </fieldset>
 
       </div><!-- /HEADER -->
       
