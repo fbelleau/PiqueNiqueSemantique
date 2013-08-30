@@ -9,7 +9,6 @@
     <!-- StyleSheet -->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
     <link rel="stylesheet" src="css/table-style.css" />
-    <link rel="stylesheet" src="css/jquery.modif.css" />
     
     <!-- Jquery Library -->
     <script src="js/lib/jquery-1.9.1.min.js"></script>
@@ -59,6 +58,11 @@
  
     </script>
     
+    <style>
+      
+    </style>
+
+;
     <!-- Start of first page -->
     <div data-role="page" id="foo">
       
@@ -66,13 +70,13 @@
       <div id="header" data-role="header" data-theme="c">
         
         <!-- Header Logo -->
-        <h1><img src="img/livreTmp.png" width="80px"/></h1>
+        <h1><img src="img/LivreOuvert.png" width="80px"/></h1>
 
         <div class="ui-grid-a" style="text-align:center;">
 
-          <div class="ui-block-a" style="width:10%">
+          <div class="ui-block-a" style="width:20%">
             <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick" data-inline="true">
-              <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" data-mini="true" checked="true"/>
+              <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" data-mini="true" checked="true" onClick=""/>
               <label for="radio-auteur">Auteurs</label>
               <input type="radio" name="radio-choice" id="radio-titre" value="titre" data-mini="true"/>
               <label for="radio-titre">Titres</label>            
@@ -80,7 +84,7 @@
           </div>
 
 
-          <div class="ui-block-b" style="width:85%; margin-top:2px">
+          <div class="ui-block-b" style="width:80%; margin-top:2px">
             <div id="searchMenu" data-role="field-contain" data-inline="true" style="margin-left:5px; margin-right:5px;">
               <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
             </div>
