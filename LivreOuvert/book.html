@@ -28,28 +28,52 @@
   <body>
   
     <script type="text/javascript">
-             
       $(document).ready(function(){
-        $.getJSON("testjson/data.json", function(data, status){
-          $("#isbn").text("ISBN: "+data["@id"].replace("isbn:",""));
-        });
+        $.getJSON(encodeURI("http://192.168.130.107:9000/describe/isbn:2070360423?callback=?"), function(data, status){
+          //$("#isbn").text("ISBN: "+data["@id"]);
+          //alert(data["@id"]);
+          $("#book").append("<h1>"+data["rdfs:label"]+"</h1>");
+          $("#book").append("<hr></hr>");
+          //var uriList="<ul>";
+          $.each(data, function(key, value) {
+            if ( key != "@context" && key != "rdfs:label") {
+              if (typeof(value)=="object") {
+                if (value instanceof Array) {
+                  $("#book").append("<h3>"+key+": </h3>")
+                  $.each(value, function(i, obj) {
+                    $("#book").append("<h3>    "+obj["@id"]+"</h3>");
+                  });
+                }
+                else {
+                  $.each(value, function(key2, val2) {
+                    $("#book").append("<h3>"+key+": "+val2+"</h3>");
+                  });
+                }
+              }
+              else { //is a string
+                $("#book").append("<h3>"+key+": "+value+"</h3>");
+              }
+            }
+          });
+          
+          });
       });
       
  
     </script>
     
     <!-- Start of first page -->
-    <div data-role="page" id="foo" style="margin-left:5px; margin-right:5px; margin-top:5px; margin-bottom:5px">
-      
-      <img id="imageLivre" src="http://images4.fanpop.com/image/photos/20100000/Game-of-Thrones-Tie-in-Cover-a-song-of-ice-and-fire-20154638-794-1213.jpg" width="100px" style="float:right; margin-top:10px; margin-right:10px"></img>
-      <h1 id="aNom">Nom, Prénom</h1>
-      <h1 id="titre">Titre</h1>
-      <h3 id="annee">1900-1990</h3>
-      <h3 id="ville">Ville</h3>
-      <h3 id="edition">Édition: </h3>
-      <h3 id="isbn">isbn:987987234<p>
-      <hr></hr>
-      <h2 id="resume">Ceci est le résumé du livre</h2>
+    <div data-role="page" id="book" style="margin-left:5px; margin-right:5px; margin-top:5px; margin-bottom:5px">
+     
+    <!--<img id="imageLivre" src="http://images4.fanpop.com/image/photos/20100000/Game-of-Thrones-Tie-in-Cover-a-song-of-ice-and-fire-20154638-794-1213.jpg" width="100px" style="float:right; margin-top:10px; margin-right:10px"></img>-->
+      <!--<h1 id="aNom">Nom, Prénom</h1>-->
+      <!--<h1 id="titre">Titre</h1>-->
+      <!--<h3 id="annee">1900-1990</h3>-->
+      <!--<h3 id="ville">Ville</h3>-->
+      <!--<h3 id="edition">Édition: </h3>-->
+      <!--<h3 id="isbn">isbn:987987234<p>-->
+      <!--<hr></hr>-->
+      <!--<h2 id="resume">Ceci est le résumé du livre</h2>-->
       
     </div><!-- /PAGE -->
     
