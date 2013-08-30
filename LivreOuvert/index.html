@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
   <head> 
-    <title>Bio2RDF mobile</title>
+    <title>Livre Ouvert</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,72 +60,34 @@
     <!-- Start of first page -->
     <div data-role="page" id="foo">
       
-
-      <!-- LEFT PANEL -->
-      <div data-role="panel" id="leftPanel" data-position="left" data-display="overlay" data-dismissible="true" data-theme="b">
-                
-        <h2 style="font-family: times, serif; font-style:italic;font-size:16px"> Metadata databases</h2>
-        
-        <fieldset data-role="controlgroup" data-theme="b" id="dbPick" data-mini="true">
-
-          <input type="radio" name="radio-choice" id="radio-bio2rdf" value="bio2rdf" />
-          <label for="radio-bio2rdf" style="text-align:center"><img src="img/bio2rdf.png" width="100px"></label>
-   
-          <input type="radio" name="radio-choice" id="radio-go" value="go" checked="true" />
-          <label for="radio-go" style="text-align:center"><img src="img/go.png" width="100px"></label>
-
-          <input type="radio" name="radio-choice" id="radio-do" value="do" />
-          <label for="radio-do" style="text-align:center"><img src="img/do.png" width="100px"></label>
-
-          <input type="radio" name="radio-choice" id="radio-chebi" value="chebi" />
-          <label for="radio-chebi" style="text-align:center"><img src="img/chebi.png" width="100px"></label>
-
-          <!-- <input type="radio" name="radio-choice" id="radio-uniprot" value="uniprot" /> -->
-          <!-- <label for="radio-uniprot" style="text-align:center"><img src="img/uniprot.png" width="100px"></label> -->
-
-          <!-- <input type="radio" name="radio-choice" id="radio-biopax" value="biopax" /> -->
-          <!-- <label for="radio-biopax" style="text-align:center"><img src="img/biopax.png" width="100px"></label> -->
-
-          <!-- <input type="radio" name="radio-choice" id="radio-sio" value="sio" /> -->
-          <!-- <label for="radio-sio" style="text-align:center"><img src="img/sio.png" width="100px"></label> -->
-
-          <!-- <input type="radio" name="radio-choice" id="radio-sadi" value="sadi" /> -->
-          <!-- <label for="radio-sadi" style="text-align:center"><img src="img/sadi.png" width="100px"></label> -->
-          
-          
-        </fieldset>        
-
-        <!-- Eventually implement a historic list right here -->
-        <h2 style="font-family: times, serif; font-style:italic;">Historic</h2>
-        <div id="history"></div>
-
-        <h2 style="font-family: times, serif; font-style:italic;">MashUp</h2>
-        <div id="mashup"></div>
-
-      </div><!-- /LEFT PANEL -->
-      
-
       <!-- HEADER -->
       <div id="header" data-role="header" data-theme="c">
         
-        <a href="#leftPanel" data-role="button" data-inline="true" data-icon="bars" data-iconpos="notext"></a>
-
         <!-- Header Logo -->
-        <h1 style="text-align:center;font-family:verdana;font-size:12px;font-style:italic"><img id="logoHead" src="img/pubmed.png" width="80px"/></h1>
+        <h1>Livre Ouvert</h1>
         
         <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext"></a>   
 
+        <!--<div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:15px; margin-ight:15px">-->
+        <div id="searchMenu" data-role="field-contain">
+          <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
+        </div>
 
-        <div id="describeHeader">
-          <h1 style="text-align:center"></h1>
-        </div>           
+        <fieldset data-role="controlgroup" data-theme="b" id="searchPick" data-mini="true">
 
-
-        <!-- SearchMenu inside header -->
-        <div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:15px; margin-right:15px">
-          <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"/>
-          <!--<button data-theme="a" id="submit" data-inline="true">Search</button>-->
-        </div> <!-- /searchMenu -->
+        <!--<div class="ui-block-a"></div>-->
+        <!--<div class="ui-block-b"></div>-->
+        <!--<div class="ui-block-c"></div>-->
+        <!--<div class="ui-block-a">-->
+            <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" />
+            <label for="radio-auteur"><h3>Auteurs</h3></label>
+            <!--</div>-->
+   
+            <!--<div class="ui-block-b">-->
+            <input type="radio" name="radio-choice" id="radio-titre" value="titre" checked="true" />
+            <label for="radio-titre"><h3>Titres</h3></label>
+            <!--</div>-->
+        </fieldset>        
         
 
       </div><!-- /HEADER -->
