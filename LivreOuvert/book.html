@@ -31,7 +31,7 @@
              
       $(document).ready(function(){
         $.getJSON("testjson/data.json", function(data, status){
-          $("#isbn").text("ISBN: "+data["@id"].);
+          $("#isbn").text("ISBN: "+data["@id"].replace("isbn:",""));
         });
       });
       
