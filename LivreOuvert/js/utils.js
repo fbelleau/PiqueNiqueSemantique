@@ -7,7 +7,7 @@ function capitalize(s)
 // Fonction qui cache la mise en page qui varie et qui supprime tout ce qui est dans content
 function refreshPage() {
 	$("#content").html("");
-	$("#searchMenu").hide();
+	// $("#searchMenu").hide();
 	$("#logo").hide(); // EVENTUELEMENT METTRE LE LOGO DU ENDPOINT
 	$("#describeHeader").hide();
 	$(".navigationButton").attr("disabled", false);
@@ -19,27 +19,6 @@ function describeContent(id,endpoint){
 	refreshPage();
 	$("#describeHeader").show();
 	$("#navigationButtons").show();
-	oboFormat();
-	oboDescribe(id);
-	
-//	switch(endpoint){
-//	case 'bio2rdf':
-//		bioDispatch(id);
-//		break;
-//	case 'go':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	case 'do':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	case 'chebi':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	default: 
-//		// alert("No Avalaible Endpoint");
-//		break;
-//	}
+	describe(id);
+
 }
