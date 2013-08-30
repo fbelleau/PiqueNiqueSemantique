@@ -11,6 +11,7 @@ function eventBindings(){
 		$('#searchMenu').toggle();
 	});
 	
+
 	//TypeAhead triggered when typing in the searchbar
 	$("#sBar").on("keyup", function() {
 		var $ul = $('#typeAhead');
@@ -23,7 +24,7 @@ function eventBindings(){
 			$ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
 			$ul.listview( "refresh" );           
 			// tAheadQuery("hex");
-			tAheadQuery($('#sBar').val(),$("#dbPick input[type='radio']:checked").val());
+			tAheadQuery($('#sBar').val(),$("#searchPick input[type='radio']:checked").val());
 		}         
 
 	 });
@@ -31,7 +32,7 @@ function eventBindings(){
 	// Bind l'evenement de click sur les résultats du typeAhead
 	$(document).on("click", ".typeAheadResult", function(){
 		var label = $(this).text();
-		endpoint = $("#dbPick input[type='radio']:checked").val();
+		endpoint = $("#searchPick input[type='radio']:checked").val();
 		$('#sBar').val(label)
 		idURI=$(this).attr("iri");
 		describeContent($(this).attr("iri"),endpoint);
@@ -44,10 +45,10 @@ function eventBindings(){
 		oboDescribe($(this).attr("iri"));
 	});
 
-	// Fait afficher la barre de recherche en appuyant sur la loupe
-	$('#searchButton').click( function(){
-		$('#searchMenu').toggle();
-	});
+	// // Fait afficher la barre de recherche en appuyant sur la loupe
+	// $('#searchButton').click( function(){
+	// 	$('#searchMenu').toggle();
+	// });
 
 	// LeftPanel Radio Button Event change pincture
 	$("input[type='radio']").bind( "change", function(event, ui) {

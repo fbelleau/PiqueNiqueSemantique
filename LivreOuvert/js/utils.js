@@ -7,7 +7,7 @@ function capitalize(s)
 // Fonction qui cache la mise en page qui varie et qui supprime tout ce qui est dans content
 function refreshPage() {
 	$("#content").html("");
-	$("#searchMenu").hide();
+	// $("#searchMenu").hide();
 	$("#logo").hide(); // EVENTUELEMENT METTRE LE LOGO DU ENDPOINT
 	$("#describeHeader").hide();
 	$(".navigationButton").attr("disabled", false);

@@ -42,8 +42,9 @@
       $(document).ready(function(){
 
         // Load le logo header sur le premier clické
-        var src = "img/"+ $("#dbPick input[type='radio']:checked").val() + ".png";
-        $("#logoHead").attr("src", src);
+        // var src = "img/"+ $("#dbPick input[type='radio']:checked").val() + ".png";
+        // $("#logoHead").attr("src", src);
+
 
         //Binding des events touch
         eventBindings();
@@ -51,7 +52,7 @@
         typeAheadContent();
                                     
         // Set Endpoint selection on document.ready -> first on the list of the leftpanel
-        var endpoint = $("#dbPick input[type='radio']:checked").val();
+        var endpoint = $("#searchPick input[type='radio']:checked").val();
 
       });
       
@@ -69,13 +70,12 @@
         <h1><img src="img/livreTmp.png" width="80px"/></h1>
 
 
-        <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext" ></a>   
+        <!-- <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext" ></a>    -->
 
         <div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:25px; margin-right:25px">
         <!-- <div id="searchMenu" data-role="field-contain"> -->
           <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
         </div>
-
 
         <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick" style="margin: 0 auto; text-align: center;" >
 
@@ -83,8 +83,8 @@
           <label for="radio-auteur"><h3>Auteurs</h3></label>
           <input type="radio" name="radio-choice" id="radio-titre" value="titre" data-mini="true"/>
           <label for="radio-titre"><h3>Titres</h3></label>
-          <input type="radio" name="radio-choice" id="radio-sujet" value="sujet" data-mini="true" checked="true" />
-          <label for="radio-sujet"><h3>Sujets</h3></label>
+          <!-- <input type="radio" name="radio-choice" id="radio-sujet" value="sujet" data-mini="true" checked="true" /> -->
+          <!-- <label for="radio-sujet"><h3>Sujets</h3></label> -->
           
         </fieldset>
 
