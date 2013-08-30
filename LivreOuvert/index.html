@@ -9,6 +9,7 @@
     <!-- StyleSheet -->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
     <link rel="stylesheet" src="css/table-style.css" />
+    <link rel="stylesheet" src="css/jquery.modif.css" />
     
     <!-- Jquery Library -->
     <script src="js/lib/jquery-1.9.1.min.js"></script>
@@ -64,28 +65,28 @@
       <div id="header" data-role="header" data-theme="c">
         
         <!-- Header Logo -->
-        <h1>Livre Ouvert</h1>
-        
-        <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext"></a>   
+        <!-- <h1>Livre Ouvert</h1> -->
+        <h1><img src="img/livreTmp.png" width="80px"/></h1>
 
-        <!--<div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:15px; margin-ight:15px">-->
-        <div id="searchMenu" data-role="field-contain">
+
+        <a href="#searchPanel" id="searchButton" data-inline="true" data-icon="search" data-iconpos="notext" ></a>   
+
+        <div id="searchMenu" data-role="field-contain" style="text-align:center; margin-left:25px; margin-right:25px">
+        <!-- <div id="searchMenu" data-role="field-contain"> -->
           <input data-theme="a" type="search" id="sBar" data-mini="true" value="" data-role="listview"></input>
         </div>
 
-        <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick">
-            <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" />
-            <label for="radio-auteur"><h3>Auteurs</h3></label>
-            <!--</div>-->
-   
-            <!--<div class="ui-block-b">-->
-            <input type="radio" name="radio-choice" id="radio-titre" value="titre" checked="true" />
-            <label for="radio-titre"><h3>Titres</h3></label>
-            <input type="radio" name="radio-choice" id="radio-sujet" value="sujet" checked="true" />
-            <label for="radio-sujet"><h3>Sujets</h3></label>
-            <!--</div>-->
-        </fieldset>        
-        
+
+        <fieldset data-role="controlgroup" data-type="horizontal" data-theme="b" id="searchPick" style="margin: 0 auto; text-align: center;" >
+
+          <input type="radio" name="radio-choice" id="radio-auteur" value="auteur" data-mini="true"/>
+          <label for="radio-auteur"><h3>Auteurs</h3></label>
+          <input type="radio" name="radio-choice" id="radio-titre" value="titre" data-mini="true"/>
+          <label for="radio-titre"><h3>Titres</h3></label>
+          <input type="radio" name="radio-choice" id="radio-sujet" value="sujet" data-mini="true" checked="true" />
+          <label for="radio-sujet"><h3>Sujets</h3></label>
+          
+        </fieldset>
 
       </div><!-- /HEADER -->
       
