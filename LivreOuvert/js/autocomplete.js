@@ -59,11 +59,11 @@ function tAheadQuery(word, endpointName){
     typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"isbn:\")) .");
     break;
 
-  case 'sujet':
+  // case 'sujet':
 
-    endpoint = "http://virtuoso-9.bio2rdf.org/sparql?query=";
-    typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"^http://purl.obolibrary.org/obo/GO\")) .");
-    break;
+  //   endpoint = "http://virtuoso-9.bio2rdf.org/sparql?query=";
+  //   typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"^http://purl.obolibrary.org/obo/GO\")) .");
+  //   break;
     
 
   default:

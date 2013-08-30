@@ -19,27 +19,6 @@ function describeContent(id,endpoint){
 	refreshPage();
 	$("#describeHeader").show();
 	$("#navigationButtons").show();
-	oboFormat();
-	oboDescribe(id);
-	
-//	switch(endpoint){
-//	case 'bio2rdf':
-//		bioDispatch(id);
-//		break;
-//	case 'go':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	case 'do':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	case 'chebi':
-//		oboFormat();
-//		oboDescribe(id);
-//		break;
-//	default: 
-//		// alert("No Avalaible Endpoint");
-//		break;
-//	}
+	describe(id);
+
 }
