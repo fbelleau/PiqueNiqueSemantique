@@ -22,6 +22,7 @@
     <script type="text/javascript" src="js/eventBindings.js"></script>
     <script type="text/javascript" src="js/autocomplete.js"></script>
     <script type="text/javascript" src="js/obo_request.js"></script>
+    <script type="text/javascript" src="js/describe.js"></script>
 
   </head>
 
@@ -29,34 +30,8 @@
   
     <script type="text/javascript">
       $(document).ready(function(){
-        $.getJSON(encodeURI("http://192.168.130.107:9000/describe/isbn:2070360423?callback=?"), function(data, status){
-          //$("#isbn").text("ISBN: "+data["@id"]);
-          //alert(data["@id"]);
-          $("#book").append("<h1>"+data["rdfs:label"]+"</h1>");
-          $("#book").append("<hr></hr>");
-          //var uriList="<ul>";
-          $.each(data, function(key, value) {
-            if ( key != "@context" && key != "rdfs:label") {
-              if (typeof(value)=="object") {
-                if (value instanceof Array) {
-                  $("#book").append("<h3>"+key+": </h3>")
-                  $.each(value, function(i, obj) {
-                    $("#book").append("<h3>    "+obj["@id"]+"</h3>");
-                  });
-                }
-                else {
-                  $.each(value, function(key2, val2) {
-                    $("#book").append("<h3>"+key+": "+val2+"</h3>");
-                  });
-                }
-              }
-              else { //is a string
-                $("#book").append("<h3>"+key+": "+value+"</h3>");
-              }
-            }
-          });
-          
-          });
+        var uri="http://192.168.130.107:9000/describe/isbn:2070360423?callback=?"
+        describe(uri)
       });
       
  
