@@ -50,21 +50,14 @@ function tAheadQuery(word, endpointName){
   case 'auteur':
 
     endpoint = "http://virtuoso-9.bio2rdf.org/sparql?query=";
-    typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"auteur:\")) .");
+    
+    query = "http://rest.bio2rdf.org/auto/Auteur/" + word + "?callback=?";
     break;
 
   case 'titre':
-
-    endpoint = "http://virtuoso-9.bio2rdf.org/sparql?query=";
-    typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"isbn:\")) .");
+    query = "http://rest.bio2rdf.org/auto/Livre/" + word + "?callback=?";
     break;
-
-  // case 'sujet':
-
-  //   endpoint = "http://virtuoso-9.bio2rdf.org/sparql?query=";
-  //   typeAHeadArray.splice(8,0,"filter(regex(str(?s1), \"^http://purl.obolibrary.org/obo/GO\")) .");
-  //   break;
-    
+   
 
   default:
     // alert("No Avalaible Endpoint");
@@ -86,21 +79,18 @@ function tAheadQuery(word, endpointName){
 
   var sparqlURL = encodeURI(urlString);
   sparqlURL = sparqlURL.replace(/\+/g,'%2B');
-  // alert(sparqlURL);
+  sparqlURL = encodeURI(query);
 
   var $ul = $('#typeAhead');
   var html = "";
   $ul.html( "" );
  
+  // $.getJSON(encodeURI(query), function(data,textstatus){
   $.getJSON(sparqlURL, function(data,textstatus){
     $.each(data.results.bindings, function(i,row){
-      // alert(row["c2"].value);
-      if(typeof row["c2"]!='undefined'){
-        // alert(row["c2"].value);
-        // alert(row["c1"].value);
-        html += "<li class=\"typeAheadResult\" iri=\"" + row["c1"].value + "\">" + capitalize(row["c2"].value)  + "</li>";
-        // html += "<li class=\"typeAheadResult\">" + capitalize(row["c2"].value)  + "</li>";
-        
+      if(typeof row["o1"]!='undefined'){
+        // html += "<li class=\"typeAheadResult\" iri=\"" + row["c1"].value + "\">" + capitalize(row["c2"].value)  + "</li>";        
+        html += "<li class=\"typeAheadResult\" iri=\"" + row["s1"].value + "\">" + capitalize(row["o1"].value)  + "</li>";        
       }
     });
     
