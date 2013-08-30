@@ -1,52 +1,45 @@
 
-function printObj(obj) {
+function printObj(key, obj) {
 	var content="";
 	if (typeof(obj)=="string"){
-		return "<p style=\"margin-left:15px\">"+obj+"</p>";
+		var objString="<p";
+		if (key=="@id") {
+			objString+=" iri=\""+obj+"\" class=\"idClickable\"";
+		}
+		objString+=" style=\"margin-left:15px\">"+capitalize(obj)+"</p>";
+		return objString;
 	}
 	else {
-	//if (obj instanceof Array) {
-	//  $.each(obj, function(i, items) {
-	//    var content +=printObj(items);
-	//  });
-	//  return content;
-	//}
-	//else {
 		$.each(obj, function(key, value){
-			//if (key=="@id") {
-			content += printObj(value);
+			content += printObj(key, value);
 		});
 		return content;
 	}
 }
-function describe(uri) {
-	$.getJSON(encodeURI(uri), function(data, status){
-			//$("#isbn").text("ISBN: "+data["@id"]);
-			//alert(data["@id"]);
+function describe(id) {
+	$.getJSON(encodeURI("http:rest.bio2rdf.org/describe/"+id+"/?callback=?"), function(data, textStatus){
 			$("#content").append("<h1>"+data["rdfs:label"]+"</h1>");
-			$("#content").append("<hr></hr>");
-			//var uriList="<ul>";
 			$.each(data, function(key, value) {
-				if ( key != "@context" && key != "rdfs:label") {
-					$("#content").append("<h3>"+key+"</h3>"+printObj(value));
-				//  if (typeof(value)=="object") {
-				//    if (value instanceof Array) {
-				//      $("#content").append("<h3>"+key+": </h3>")
-				//      $.each(value, function(i, obj) {
-				//        $("#content").append("<h3>    "+obj["@id"]+"</h3>");
-				//      });
-				//    }
-				//    else {
-				//      $.each(value, function(key2, val2) {
-				//        $("#content").append("<h3>"+key+": "+val2+"</h3>");
-				//      });
-				//    }
-				//  }
-				//  else { //is a string
-				//    $("#content").append("<h3>"+key+": "+value+"</h3>");
-				//  }
+				if ( key[0] != "@" && key != "rdfs:label" && key !="dc:identifier") {
+					$("#content").append("<hr></hr><h3>"+capitalize(key.replace("bouquin:",""))+"</h3>"+printObj(key, value));
 				}
 			});
-			
+		if (/auteur/g.test(data["@id"])==true) {
+			$("#content").append("<div id=\"livres\" data-role=\"collapsibleset\" style=\"margin-left:5px\"></div>")
+			$("#livres").collapsibleset();
+			$("#livres").append("<div id=\"oeuvres\"data-role=\"collapsible\"><h3>Oeuvres</h3></div>");
+			$.getJSON(encodeURI("http:rest.bio2rdf.org/auteurLivres/"+id+"/?callback=?"), function(data2, textStatus2){
+				var collapsibleContent="";
+				$.each(data2["@graph"], function(i, value){
+					collapsibleContent+="<p class=\"idClickable\" iri=\""+value["@id"]+"\">"+value["rdfs:label"]+"</p>";
+				});
+				$("#oeuvres").append(collapsibleContent).trigger("create");
+				$("#livres").collapsibleset("refresh");
+				$("#livres").trigger("updatelayout");
+				
+				
+			});
+		}
 	});
 }
+	

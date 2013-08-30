@@ -20,8 +20,9 @@ function describeContent(id,endpoint){
   $("#describeHeader").show();
   $("#navigationButtons").show();
   
-  uri = "http://192.168.130.107:9000/describe/" + id + "/?callback=?"
+	/*uri = "http://192.168.130.107:9000/describeAuteur/" + id + "/?callback=?"*/
+	//uri = "http://192.168.130.107:9000/describe/" + id + "/?callback=?"
 
-  describe(uri);
+  describe(id);
 
 }

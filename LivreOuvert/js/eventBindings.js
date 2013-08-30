@@ -39,10 +39,9 @@ function eventBindings(){
 	});
 
 	// Parents/childs Result click
-	$(document).on("click", ".hasDescription", function(){
+	$(document).on("click", ".idClickable", function(){
 		$('#content').html("");
-		oboFormat();
-		oboDescribe($(this).attr("iri"));
+		describe($(this).attr("iri"));
 	});
 
 	// // Fait afficher la barre de recherche en appuyant sur la loupe
