@@ -16,7 +16,10 @@ function typeAheadContent(){
 function tAheadQuery(word, endpointName){
 
   // var domain="http://rest.bio2rdf.org/auto/";
-  var domain="http://10.80.3.6:9000/auto/"
+  // var domain="http://10.80.3.6:9000/auto/"
+  // var domain="http://192.168.43.55:9000/auto/"
+  var domain="http://rest.bio2rdf.org/auto/"
+
   
   typeAheadContent();
 

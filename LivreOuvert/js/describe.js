@@ -42,7 +42,9 @@ function auteurWiki(id){
 function bouquinAmazon (id){
   
   var resource = id.split(":");
-  var amazonURL = "http://10.80.3.6:9000/amazone/" + resource[1] + "/?callback=?";
+  // var amazonURL = "http://10.80.3.6:9000/amazone/" + resource[1] + "/?callback=?";
+  // var amazonURL = "http://192.168.43.55:9000/amazone/" + resource[1] + "/?callback=?";
+  var amazonURL = "http://rest.bio2rdf.org/amazone/" + resource[1] + "/?callback=?";
   
   // $.getJSON(encodeURI(domain+"describe/"+id+"/?callback=?"), function(data, textStatus){
   $.getJSON(encodeURI(amazonURL), function(data,textstatus){
@@ -78,8 +80,9 @@ function printObj(key, obj) {
 
 function describe(id) {
 
-  var domain="http://10.80.3.6:9000/"
-  // var domain="http://rest.bio2rdf.org/";
+  // var domain="http://10.80.3.6:9000/"
+  // var domain="http://192.168.43.55:9000/"
+  var domain="http://rest.bio2rdf.org/";
 
   $.getJSON(encodeURI(domain+"describe/"+id+"/?callback=?"), function(data, textStatus){
     $("#content").append("<h1>"+data["rdfs:label"]+"</h1>");
